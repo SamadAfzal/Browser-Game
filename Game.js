@@ -132,7 +132,20 @@ function renderCard(card, player) {
 }
 
 function getCardUI(card){
+    let el = document.createElement('div');
+    let icon = '';
+    if(card.Suit == 'Hearts')
+    icon='&hearts';
+    else if (card.Suit == 'Spades')
+    icon='&spades';
+    else if (card.Suit == 'Diamonds')
+    icon='&diams';
+    else 
+    icon = '&clubs';
 
+    el.className = 'card';
+    el.innerHTML = card.Value + '<br/>' + icon;
+    return el;
 }
 
 function check() {
