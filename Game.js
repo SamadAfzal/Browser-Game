@@ -4,6 +4,7 @@ var deck = new Array();
 var players = new Array();
 var currentPlayer = 0;
 var seq = 0;
+var count = 0;
 
 function createDeck(){
     for(let i = 0; i < values.length; i++){
@@ -161,11 +162,11 @@ function getCardUI(card){
     let el = document.createElement('div');
     let icon = '';
     if(card.Suit == 'Hearts')
-    icon='&hearts';
+    icon='&hearts;';
     else if (card.Suit == 'Spades')
-    icon='&spades';
+    icon='&spades;';
     else if (card.Suit == 'Diamonds')
-    icon='&diams';
+    icon='&diams;';
     else 
     icon = '&clubs';
 
@@ -199,3 +200,29 @@ window.addEventListener('load', function(){
     shuffle();
     createPlayers(1);
 });
+
+function countCard(card){
+    let msg = '';
+
+    switch (card){
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            count++
+        case 7: 
+        case 8: 
+        case 9: 
+            count = count;
+        case 10:
+        case "J":
+        case "Q":
+        case "K":
+        case "A":
+            count--;
+            break;
+
+    }
+
+}
