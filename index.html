@@ -8,7 +8,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/Assets/style.css">
-        <script src="Game.js" ></script>
     </head>
     <body>
         <div class= everything>
@@ -29,8 +28,10 @@
 
 
                 <div class="gameBtns">
+
+                    <input type="button" id="start" class="btn" value="start" onclick="startGame()">
                     <input type="button" id="hitMe" class="btn" value="Hit Me" onclick="hitMe()">
-                    <input type="button" id="deal" class="dealBtn" value="Deal" onclick="dealCards()">
+                    <input type="button" id="deal" class="dealBtn" value="Deal" onclick="dealHands()">
                     <input type="button" id="stay" class="btn" value="Stay" onclick="stay()">
                 </div>
                 <div id="yourWinnings">Your Winnings:</div>
@@ -48,11 +49,11 @@
 
             </div>
         </div>
-        
 
 
 
 
+        <script src="./Game.js"></script>
         
     </body>
 </html>
