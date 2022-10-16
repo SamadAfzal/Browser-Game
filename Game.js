@@ -63,3 +63,5 @@ function startGame(){
 
 }
 
+//rendering card function//
+
