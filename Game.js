@@ -95,11 +95,22 @@ function startGame(){
 function hitMe(){
     var card = deck.pop();
     players[currentPlayer].Hand.push(card);
-    //render card//
+    renderCard(card, currentPlayer);
     updatePoints();
+    updateDeck();
     check();
 }
 
+function stay(){
+    if(currentPlayer != players.length-1) {
+        document.getElementById('player_' + currentPlayer).classList.remove('active');
+        currentPlayer += 1;
+        document.getElementById('player_' + currentPlayer).classList.add('active');
+    } else {
+        end();
+    
+    }
+}
 
 function renderCard(card, player) {
     var hand = document.getElementById('hand_' + player);
@@ -107,5 +118,5 @@ function renderCard(card, player) {
 }
 
 function getCardUI(card){
-    
+
 }
