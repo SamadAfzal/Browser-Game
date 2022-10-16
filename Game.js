@@ -148,6 +148,16 @@ function getCardUI(card){
     return el;
 }
 
+function getPoints(player){
+    let points = 0;
+    for (let i = 0; i < players[player].Hand.length; i++) {
+        points += players[player].Hand[i].Weight;
+    }
+    players[player].Points = points;
+    return points;
+}
+
+
 function check() {
     if(players[currentPlayer].Points > 21){
         document.getElementById('status').innerHTML = 'Player:' + players[currentPlayer].ID + 'Lost';
