@@ -112,6 +112,20 @@ function stay(){
     }
 }
 
+function end(){
+    var winner = -1;
+    var score = 0;
+
+    for(let i = 0; i < player.length; i++){
+        if (players[i].Points > score && players[i].Points < 22) {
+            winner = i;
+        }
+        score = player[i].Points;
+    }
+    document.getElementById('status').innerHTML = 'Winner: Player' + players[winner].ID;
+    document.getElementById("status").style.display = 'inline-block';
+}
+
 function renderCard(card, player) {
     var hand = document.getElementById('hand_' + player);
     hand.appendChild(getCardUI(card));
@@ -119,4 +133,11 @@ function renderCard(card, player) {
 
 function getCardUI(card){
 
+}
+
+function check() {
+    if(players[currentPlayer].Points > 21){
+        document.getElementById('status').innerHTML = 'Player:' + players[currentPlayer].ID + 'Lost';
+        end();
+    }
 }
