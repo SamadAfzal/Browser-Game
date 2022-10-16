@@ -49,7 +49,7 @@ function createPlayersUI() {
         div_player.appendChild(div_hand);
         div_player.appendChild(div_points);
         document.getElementById('players').appendChild(div_player);
-        
+
 
 
     }
@@ -85,8 +85,9 @@ function startGame(){
     createDeck();
     shuffle();
     createPlayers(2);
-
-
+    createPlayersUI();
+    dealHands();
+    document.getElementById('player_' + currentPlayer).classList.add('active');
 }
 
 //rendering card function//
