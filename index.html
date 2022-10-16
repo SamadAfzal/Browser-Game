@@ -11,41 +11,44 @@
         <script src="Game.js" ></script>
     </head>
     <body>
-        <div class="gameHeader">
-            <h1>Black Jack</h1>
-            <h3>"May the odds be always in your favor"</h3>
-            <!--Add a counter in the header- function based-->
+        <div class= everything>
+            <div class="gameHeader">
+                <h1>Black Jack</h1>
+                <h3>"May the odds be always in your favor"</h3>
+                <!--Add a counter in the header- function based-->
+            </div>
+
+            <div class="gameBody">
+
+                <div calss="status" id ="status"></div>
+                <!--This will serve as the winn/loss prompt -->
+
+                <div class="count"></div>
+                <div class="players"></div>
+
+
+
+                <div class="gameBtns">
+                    <input type="button" id="hitMe" class="btn" value="Hit Me" onclick="hitMe()">
+                    <input type="button" id="deal" class="dealBtn" value="Deal" onclick="dealCards()">
+                    <input type="button" id="stay" class="btn" value="Stay" onclick="stay()">
+                </div>
+                <div id="yourWinnings">Your Winnings:</div>
+                <div id="yourWinningsValue">$</div>
+
+                <div id="betAmount">
+                    <span>Your Bet:</span>
+                    <input type="text" size="6" id="betAmountValue">
+                </div>
+
+                </div>
+
+
+
+
+            </div>
         </div>
-
-        <div class="gameBody">
-
-            <div calss="status" id ="status"></div>
-            <!--This will serve as the winn/loss prompt -->
-
-            <div class="count"></div>
-            <div class="players"></div>
-
-
-
-            <div class="gameBtns">
-                <input type="button" id="hitMe" class="btn" value="Hit Me" onclick="hitMe()">
-                <input type="button" id="deal" class="dealBtn" value="Deal" onclick="dealCards()">
-                <input type="button" id="stay" class="btn" value="Stay" onclick="stay()">
-            </div>
-            <div id="yourWinnings">Your Winnings:</div>
-            <div id="yourWinningsValue">$</div>
-
-            <div id="betAmount">
-                <span>Your Bet:</span>
-                <input type="text" size="6" id="betAmountValue">
-            </div>
-
-            </div>
-
-
-
-
-        </div>
+        
 
 
 

@@ -1,0 +1,20 @@
+.everything {
+    background-color: #D1D8EC;
+}
+
+.btn {
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    background: #D1D8EC;
+    -webkit-box-shadow: 10px 10px 12px #9da2b1, -10px -10px 12px #ffffff;
+    box-shadow: 10px 10px 12px #9da2b1, -10px -10px 12px #ffffff;
+    border: none;
+}
+/*
+.btn svg {
+    margin-right: 8px;
+    width: 18px;    
+    height: 18px;
+}
+*/
+
