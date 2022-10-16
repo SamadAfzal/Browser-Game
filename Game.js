@@ -99,3 +99,13 @@ function hitMe(){
     updatePoints();
     check();
 }
+
+
+function renderCard(card, player) {
+    var hand = document.getElementById('hand_' + player);
+    hand.appendChild(getCardUI(card));
+}
+
+function getCardUI(card){
+    
+}
