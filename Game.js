@@ -65,3 +65,10 @@ function startGame(){
 
 //rendering card function//
 
+function hitMe(){
+    var card = deck.pop();
+    players[currentPlayer].Hand.push(card);
+    //render card//
+    updatePoints();
+    check();
+}
