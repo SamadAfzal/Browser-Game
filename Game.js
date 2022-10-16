@@ -88,6 +88,10 @@ function dealHands(){
 
 function updatePoints(){
     console.log('updatePoints, update point has been ran')
+    for (let i = 0; i < players.length; i++){
+        getPoints(i)
+        document.getElementById('points_' + i).innerHTML = players[i].Points;
+    }
 }
 
 
@@ -112,6 +116,7 @@ function hitMe(){
     var card = deck.pop();
     players[currentPlayer].Hand.push(card);
     renderCard(card, currentPlayer);
+
     updatePoints();
     updateDeck();
     check();
@@ -168,7 +173,7 @@ function getCardUI(card){
     else if (card.Suit == 'Diamonds')
     icon='&diams;';
     else 
-    icon = '&clubs';
+    icon = '&clubs;';
 
     el.className = 'card';
     el.innerHTML = card.Value + '<br/>' + icon;
@@ -225,4 +230,12 @@ function countCard(card){
 
     }
 
+    if(count === 5) msg = "Count: 5 (Bet)";
+    else if (count === 0) msg = "Count: 0 (Hold)";
+    else if (count === -5) msg = "Count: -5 (Hold)";
+    else if (count === -1) msg = "Count: -1 (Hold)";
+    else if (count === 1) msg = "Count: 1 (Bet)";
+
+    return msg;
+    // attatch it to the game // 
 }
