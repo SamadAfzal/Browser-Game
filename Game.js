@@ -49,6 +49,7 @@ function createPlayersUI() {
         div_player.appendChild(div_hand);
         div_player.appendChild(div_points);
         document.getElementById('players').appendChild(div_player);
+        
 
 
     }
