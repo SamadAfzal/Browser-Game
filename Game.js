@@ -25,13 +25,19 @@ function createDeck(){
 }
 
 
-function createPlayers(num){
+function createPlayers(){
     console.log('createPlayers has been run', seq +1)
     players = new Array();
-    for(let i = 1; i <= num; i++){
-        var hand = new Array();
-        var player ={ Name: 'Player' + i, Points: 0, Hand: hand};
-        players.push(player);
+
+    players[0] = {
+        Name: "Player",
+        Hand: [],
+        points: 0
+    };
+    players[1] = {
+        Name: "Dealer",
+        Hand: [],
+        points: 0
     }
 }
 //needed major help. too confusing. should be creating the players.//
@@ -52,7 +58,7 @@ function createPlayersUI() {
         div_player.className = 'player';
         div_hand.id = 'hand_' + i;
 
-        div_playerid.innerHTML = 'Player' + players[i].id;
+        div_playerid.innerHTML = players[i].Name;
         div_player.appendChild(div_playerid);
         div_player.appendChild(div_hand);
         div_player.appendChild(div_points);
@@ -199,12 +205,7 @@ function check() {
     }
 }
 
-window.addEventListener('load', function(){
-    console.log('loading has been run', seq +1)
-    createDeck();
-    shuffle();
-    createPlayers(1);
-});
+
 
 function countCard(card){
     let msg = '';
