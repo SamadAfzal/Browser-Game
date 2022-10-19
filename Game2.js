@@ -25,14 +25,19 @@ function createDeck(){
 }
 
 
-function createPlayers(num)
-{
+function createPlayers(){
+    console.log('createPlayers has been run', seq +1)
     players = new Array();
-    for(var i = 1; i <= num; i++)
-    {
-        var hand = new Array();
-        var player = { Name: 'Player ' + i, ID: i, Points: 0, Hand: hand };
-        players.push(player);
+
+    players[0] = {
+        Name: "Player",
+        Hand: [],
+        points: 0
+    };
+    players[1] = {
+        Name: "Dealer",
+        Hand: [],
+        points: 0
     }
 }
 //needed major help. too confusing. should be creating the players.//
@@ -203,7 +208,7 @@ function check() {
 
 
 
-function countCard(deck){
+function countCard(card){
     let msg = '';
 
     switch (card){
