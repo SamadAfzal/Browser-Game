@@ -2,7 +2,7 @@
     width: 720px;
     border: solid 1px #ddd;
     margin: 0 auto;
-    background: #3ac7fe;
+    background: #3ac6fe81;
     border: solid 10px;
     text-align:center;
     min-height:430px;
@@ -23,6 +23,8 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #263666;
     border: none;
+    flex: auto;
+    justify-content: space-between;
     
 }
 

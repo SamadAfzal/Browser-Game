@@ -1,5 +1,5 @@
 var suits = ["Spaced", "Diamonds", "Hearts", "Clubs"];
-var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "k"];
+var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 var deck = new Array();
 var players = new Array();
 var currentPlayer = 0;
@@ -104,7 +104,7 @@ function updatePoints(){
 function startGame(){
     console.log('startGame has been run', seq +1)
     document.getElementById('deal').value = 'Restart';
-    document.getElementById("status").style.display="none";
+    //document.getElementById("status").style.display="none";//
     
     currentPlayer = 0;
     createDeck();
@@ -150,13 +150,13 @@ function end(){
     var winner = -1;
     var score = 0;
 
-    for(let i = 0; i < player.length; i++){
+    for(let i = 0; i < players.length; i++){
         if (players[i].Points > score && players[i].Points < 22) {
             winner = i;
         }
-        score = player[i].Points;
+        score = players[i].Points;
     }
-    document.getElementById('status').innerHTML = 'Winner: Player' + players[winner].ID;
+    document.getElementById('status').innerHTML = 'Winner: Player' + players[winner].Name;
     document.getElementById("status").style.display = 'inline-block';
 }
 
@@ -198,9 +198,10 @@ function getPoints(player){
 
 
 function check() {
+    console.log("check players", players[currentPlayer].Points)
     console.log('check has been run', seq +1)
-    if(players[currentPlayer].Points > 21){
-        document.getElementById('status').innerHTML = 'Player:' + players[currentPlayer].ID + 'Lost';
+    if(players[currentPlayer].Points > 21) {
+        document.getElementById('status').innerHTML = `${players[currentPlayer].Name} Lost`;
         end();
     }
 }
