@@ -5,7 +5,7 @@ var players = new Array();
 var currentPlayer = 0;
 var seq = 0;
 var count = 0;
-
+var card = 0;
 function createDeck(){
     for(let i = 0; i < values.length; i++){
         for(let x = 0; x < suits.length; x++){
@@ -197,13 +197,15 @@ function check() {
     console.log('check has been run', seq +1)
     if(players[currentPlayer].Points > 21) {
         document.getElementById('status').innerHTML = `${players[currentPlayer].Name} Lost`;
+        countCard();
         end();
     }
 }
 
 
 
-function countCard(hand){
+function countCard(card){
+    console.log("count card is being read")
     let msg = '';
 
     switch (card){
