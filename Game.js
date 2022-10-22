@@ -151,7 +151,7 @@ function end(){
         }
         score = players[i].Points;
     }
-    document.getElementById('status').innerHTML = 'Winner: Player' + players[winner].Name;
+    document.getElementById("status").innerHTML = 'Winner: Player' + players[winner].Name;
     document.getElementById("status").style.display = 'inline-block';
 }
 
@@ -203,7 +203,7 @@ function check() {
 
 
 
-function countCard(deck){
+function countCard(hand){
     let msg = '';
 
     switch (card){

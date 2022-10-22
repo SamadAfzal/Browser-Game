@@ -1,17 +1,24 @@
 .everything {
-    width: 720px;
+    width: auto;
     border: solid 1px #ddd;
     margin: 0 auto;
-    background: #3ac6fe81;
+    background: #075bb470;
     border: solid 10px;
     text-align:center;
     min-height:430px;
+    height: auto
 }
 
+h3{
+    font-size: 15px;
+}
 
+.gameBtns{
+    padding: 10px 10px 15px 10px;
+}
 
 .btn {
-    box-shadow: 0px 0px 20px 3px #23395e;
+    box-shadow: 0px 0px 10px 2px #23395e;
 	background-color:transparent;
 	border-radius:17px;
 	display:inline-block;
@@ -19,7 +26,7 @@
 	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
-	padding:4px 16px;
+	padding:5px 50px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #263666;
     border: none;
@@ -37,7 +44,7 @@
 	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
-	padding:4px 16px;
+	padding: 5px 50px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #263666;
 }
@@ -48,6 +55,12 @@
     height: 18px;
 }
 */
+.players{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
 
 
 .player{
@@ -65,7 +78,7 @@
     border: solid 5px hotpink;
 }
 
-.game .card{
+.card{
     width: 50px;
     height: 80px;
     padding: 10px;
@@ -77,4 +90,16 @@
     text-align: center;
     margin: 3px;
     border:solid 3px;
+}
+
+.status
+{
+    display: inline-block;
+    background: gold;
+    border: solid 5px white;
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display:none;
 }
