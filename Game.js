@@ -98,7 +98,7 @@ function updatePoints(){
 
 function startGame(){
     console.log('startGame has been run', seq +1)
-    document.getElementById('deal').value = 'Restart';
+    document.getElementById('start').value = 'Restart';
     //document.getElementById("status").style.display="none";//
     
     currentPlayer = 0;
