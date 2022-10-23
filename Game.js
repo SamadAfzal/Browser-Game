@@ -85,6 +85,7 @@ function dealHands(){
             updatePoints();
         }
     }
+    
     updateDeck();
 }
 
@@ -101,7 +102,7 @@ function startGame(){
     console.log('startGame has been run', seq +1)
     document.getElementById('start').value = 'Restart';
     document.getElementById("status").style.display="none";
-    // document.getElementById('status').innerHTML =''
+    document.getElementById('countCardMsg').innerHTML =" ";
     
     currentPlayer = 0;
     createDeck();
