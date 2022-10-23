@@ -16,6 +16,7 @@ function createDeck(){
                 weight = 10;
             if(values[i] == "A")
                 weight = 11;
+                
             var card = {Value: values[i], Suit: suits[x], Weight: weight};
             deck.push(card)
 
@@ -35,7 +36,7 @@ function createPlayers(num)
         players.push(player);
     }
 }
-//needed major help. too confusing. should be creating the players.//
+
 function createPlayersUI() {
     console.log('createPlayersUI has been run', seq +1)
     document.querySelector('.players').innerHTML = '';
@@ -63,7 +64,7 @@ function createPlayersUI() {
 
     }
 }
-// need to adjust shuffle - not sure how to code it //
+
 function shuffle(){
     console.log('shuffle has been run', seq +1)
     for(let i = deck.length - 1; i > 0; i--) {
@@ -99,7 +100,8 @@ function updatePoints(){
 function startGame(){
     console.log('startGame has been run', seq +1)
     document.getElementById('start').value = 'Restart';
-    //document.getElementById("status").style.display="none";//
+    document.getElementById("status").style.display="none";
+    // document.getElementById('status').innerHTML =''
     
     currentPlayer = 0;
     createDeck();
@@ -108,6 +110,7 @@ function startGame(){
     createPlayersUI();
     dealHands();
     document.getElementById('player_' + currentPlayer).classList.add('active');
+    //document.getElementById("status").style.display="none"//
 }
 
 //rendering card function//
@@ -116,6 +119,11 @@ function hitMe(){
     console.log('hitMe has been run', seq +1)
     var card = deck.pop();
     players[currentPlayer].Hand.push(card);
+    console.log( 'check hand', players[currentPlayer].Hand )
+    let allCardsArr = players[ 0 ].Hand.concat( players[ 1].Hand );
+    if ( allCardsArr.length ) {
+        countCard(allCardsArr );
+    }
     renderCard(card, currentPlayer);
 
     updatePoints();
@@ -142,16 +150,22 @@ function updateDeck(){
 
 function end(){
     console.log('end has been run', seq +1)
-    var winner = -1;
+    // var winner = 1;
     var score = 0;
 
     for(let i = 0; i < players.length; i++){
-        if (players[i].Points > score && players[i].Points < 22) {
-            winner = i;
+
+        if (( players[i].Points > score && players[i].Points < 22 ) || players[ i ].Points === 21 ) {
+            // winner = i;
+            document.getElementById("status").innerHTML = 'Winner: ' + players[i].Name;
+        // } else if ( players[i].Points > 21 ) {
+        //     winner = i + 1
         }
         score = players[i].Points;
     }
-    document.getElementById("status").innerHTML = 'Winner: ' + players[winner].Name;
+
+    console.log( 'players array', players );
+    // document.getElementById("status").innerHTML = 'Winner: ' + players[winner].Name;
     document.getElementById("status").style.display = 'inline-block';
 }
 
@@ -193,48 +207,79 @@ function getPoints(player){
 
 
 function check() {
+    // if ( players[currentPlayer].Hand.length ) {
+    //     countCard(players[currentPlayer].Hand.length );
+    // }
     console.log("check players", players[currentPlayer].Points)
     console.log('check has been run', seq +1)
     if(players[currentPlayer].Points > 21) {
         document.getElementById('status').innerHTML = `${players[currentPlayer].Name} Lost`;
-        countCard();
         end();
     }
 }
 
+//every time hit, push card into array
+//map or do a for loop on every card in the array, 
+//then check if 2-6, count++
+//return count
 
-
-function countCard(card){
+function countCard( cards ){
+    console.log('cards', cards)
     console.log("count card is being read")
     let msg = '';
 
-    switch (card){
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
+    for ( let i = 0; i < cards.length; i++ ) {
+        // if( cards[i].Value === ( '2' || '3' || '4' || '5' || '6' )) {
+        //     count++
+        //     console.log('count', count)
+        // } else if ( cards[i].Value === ( '7' || '8' || '9' )) {
+        //     count = count
+        //     console.log('count', count)
+        // } else if ( cards[i].Value === ( '10' || "J" || "Q" || "K" || "A" ) ) {
+        //     count--
+        //     console.log('count', count)
+        // }
+        if( 1 < cards[i].Weight && cards[i].Weight < 7) {
             count++
-        case 7: 
-        case 8: 
-        case 9: 
-            count = count;
-        case 10:
-        case "J":
-        case "Q":
-        case "K":
-        case "A":
-            count--;
-            break;
 
+        } else if ( 6 < cards[i].Weight && cards[i].Weight < 10) {
+            count = count
+
+        } else if ( 9 < cards[i].Weight  && cards[i].Weight < 12 ) {
+            count--
+
+        }
     }
+    
+    // switch (cards ){
+    //     case 2:
+    //     case 3:
+    //     case 4:
+    //     case 5:
+    //     case 6:
+    //         count++
+    //     case 7: 
+    //     case 8: 
+    //     case 9: 
+    //         count = count;
+    //     case 10:
+    //     case "J":
+    //     case "Q":
+    //     case "K":
+    //     case "A":
+    //         count--;
+    //         break;
 
-    if(count === 5) msg = "Count: 5 (Bet)";
-    else if (count === 0) msg = "Count: 0 (Hold)";
-    else if (count === -5) msg = "Count: -5 (Hold)";
-    else if (count === -1) msg = "Count: -1 (Hold)";
-    else if (count === 1) msg = "Count: 1 (Bet)";
+    // }
+    console.log( 'count', count );
 
+    if(count > 0 ) msg = `${count} (Bet)`;
+    else if (count === 0) msg = `${count} (Hold)`;
+    else if (count < 0 ) msg = `${count} (Hold)`;
+    // else if (count === -1) msg = "-1 (Hold)";
+    // else if (count === 1) msg = "1 (Bet)";
+    
+    document.getElementById('countCardMsg').innerHTML=`${msg}`;
     return msg;
     // attatch it to the game // 
 }
