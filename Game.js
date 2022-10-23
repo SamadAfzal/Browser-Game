@@ -151,7 +151,7 @@ function end(){
         }
         score = players[i].Points;
     }
-    document.getElementById("status").innerHTML = 'Winner: Player' + players[winner].Name;
+    document.getElementById("status").innerHTML = 'Winner: ' + players[winner].Name;
     document.getElementById("status").style.display = 'inline-block';
 }
 
