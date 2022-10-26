@@ -2,7 +2,7 @@
     height: 100%;
     border: solid 1px #ddd;
     margin: 0 auto;
-    background: #075bb470;
+    background: #94c4f783;
     border: solid 5px;
     text-align:center;
     font-family: 'M PLUS 1', sans-serif;
@@ -112,7 +112,7 @@ h3{
 .statusClass
 {
     display: inline-block;
-    background: gold;
+    background: rgba(240, 127, 216, 0.917);
     border: solid 5px white;
     border-radius: 10px;
     padding: 5px 20px;

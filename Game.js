@@ -4,7 +4,7 @@ var deck = new Array();
 var players = new Array();
 var currentPlayer = 0;
 var seq = 0;
-var count = 0;
+//var count = 0;//
 var card = 0;
 function createDeck(){
     for(let i = 0; i < values.length; i++){
@@ -84,10 +84,15 @@ function dealHands(){
             renderCard(card, x);
             updatePoints();
         }
+        
 
     }
     
     updateDeck();
+    let allCardsArr = players[ 0 ].Hand.concat( players[ 1].Hand );
+    if ( allCardsArr.length ) {
+        countCard(allCardsArr );
+    }
 }
 
 function updatePoints(){
@@ -226,11 +231,13 @@ function check() {
 //return count
 
 function countCard( cards ){
+    var count = 0
     console.log('cards', cards)
     console.log("count card is being read")
     let msg = '';
 
     for ( let i = 0; i < cards.length; i++ ) {
+        console.log("cards[i].Weight", cards[i].Weight)
         // if( cards[i].Value === ( '2' || '3' || '4' || '5' || '6' )) {
         //     count++
         //     console.log('count', count)
@@ -242,13 +249,13 @@ function countCard( cards ){
         //     console.log('count', count)
         // }
         if( 1 < cards[i].Weight && cards[i].Weight < 7) {
-            count++
+            count+=1
 
         } else if ( 6 < cards[i].Weight && cards[i].Weight < 10) {
-            count = count
+            count +=0
 
         } else if ( 9 < cards[i].Weight  && cards[i].Weight < 12 ) {
-            count--
+            count-=1
 
         }
     }
@@ -285,3 +292,4 @@ function countCard( cards ){
     return msg;
     // attatch it to the game // 
 }
+
