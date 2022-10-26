@@ -24,7 +24,7 @@ function createDeck(){
     console.log('testing deck', deck)
 }
 
-
+// THE MAIN DIFFERENCE - not using four loop for making players - but that means ihave to code out Dealer -//
 function createPlayers(){
     console.log('createPlayers has been run', seq +1)
     players = new Array();
